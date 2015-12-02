@@ -1,31 +1,28 @@
 var billAmt = 0;
 var tipRate = 0;
-var tipButton = $('input[type=button]');
-var total = $('input[placeholder=Total]');
+var calcButton = $('#calculate');
+var billTotal = $('#total');
 
-
-var calcTip = function() {
-	billAmt = parseInt($('input[placeholder="enter bill"]').val());
-	tipRate = parseInt($('input[placeholder="enter tip rate"]').val());
-	tipPercent = tipRate / 100;
+var calcRate = function() {
+	billAmt = parseInt($('#bill').val());
+	tipRate = parseInt($('#tip option:selected').text());
 	
-	return billAmt * tipPercent;
+	return billAmt * (tipRate / 100);
 };
 
-var addTotal = function() {
-	tip = calcTip();
-	
-	return tip + billAmt;
+var addBill = function() {
+	tipPercent = calcRate();
+	return billAmt + tipPercent;
 };
 
 var displayTotal = function() {
-	$(tipButton).click(function() {
-		totalBill = addTotal();
-		if(isNaN(totalBill)) {
-			alert("please enter numbers");
-		}
+	$(calcButton).on("click", function() {
+		total = addBill();
+		if(!isNaN(total)) {
+			$(billTotal).val(total);
+		} 
 		else {
-			$(total).val(totalBill);
+			$(billTotal).val("Please enter valid whole numbers");
 		}
 	});
 };

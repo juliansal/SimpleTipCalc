@@ -1,19 +1,56 @@
- <!DOCTYPE html>
+<!doctype html>
 <html>
+	<title>Tip Calculator 2</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <head>
-	<title>Tip Calculator</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-	<h2>My Tip Calculator</h2>
-	<form>
-		<input type="text" placeholder="enter bill"/><br />
-		<input type="text" placeholder="enter tip rate"><br />
-		<input type="button" value="Calculate" /><br />
-		<input type="text" placeholder="Total" disabled="disabled" />
-	</form>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="tip.js"></script>
+	<div class="container">
+		<h2>Tip Calculator 2</h2>
+		<hr>
+
+			<div class="col-sm-4">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-2">Bill</label>
+						<div class="col-sm-10">
+							<input type="text" id="bill" class="form-control" placeholder="Enter Bill Amount" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2">Tip</label>
+						<div class="col-sm-10">
+							<select id="tip" class="form-control">
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+								<option>13</option>
+								<option>14</option>
+								<option>15</option>
+								<option>16</option>
+								<option>17</option>
+								<option>18</option>
+								<option>19</option>
+								<option>20</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<input type="button" id="calculate" class="btn btn-default" value="Calculate" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3">Total Bill</label>
+						<div class="col-sm-9">
+							<input type="text" id="total" class="form-control" readonly placeholder="Total" />
+						</div>
+					</div>
+				</form>
+			</div>
+
+	</div>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
+	<script src="tip.js" ></script>
 </body>
-</html> 
+</html>
