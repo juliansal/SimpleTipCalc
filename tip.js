@@ -6,7 +6,7 @@ var billTotal = $('#total');
 var calcRate = function() {
 	billAmt = parseInt($('#bill').val());
 	tipRate = parseInt($('#tip option:selected').text());
-	
+		
 	return billAmt * (tipRate / 100);
 };
 
@@ -19,12 +19,17 @@ var displayTotal = function() {
 	$(calcButton).on("click", function() {
 		total = addBill();
 		if(!isNaN(total)) {
+			total = "$\ " + total;
 			$(billTotal).val(total);
+			$('#billrow').removeClass("has-error");
 		} 
 		else {
-			$(billTotal).val("Please enter valid whole numbers");
+			$(billTotal).val("Oops!");
+			$('#billrow').toggleClass("has-error");
+			$('[data-toggle="tooltip"]').tooltip();
 		}
 	});
 };
+
 
 displayTotal();
